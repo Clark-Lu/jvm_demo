@@ -3,7 +3,6 @@ package com.luchang.demo.test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /*
@@ -18,9 +17,10 @@ public class JDKSingleton {
             CompletableFuture<JDKSingleton> future = CompletableFuture.supplyAsync(() -> JDKSingleton.getSingleton());
             list.add(future);
         }
+        JDKSingleton singleton = JDKSingleton.getSingleton();
         for (int i = 0; i < list.size(); i++) {
             try {
-                System.out.println(JDKSingleton.getSingleton() == list.get(i).get());
+                System.out.println(singleton == list.get(i).get());
             } catch (Exception e) {
                 continue;
             }
@@ -44,6 +44,7 @@ public class JDKSingleton {
     }
 
     public static JDKSingleton getSingleton(){
+        System.out.println("获取单例方法调用");
         return Holder.getJdkSingleton();
     }
 
