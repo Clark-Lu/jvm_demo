@@ -26,10 +26,10 @@ public class ClassLoaderTest {
                 }
             }
         };
-        Object test = classLoader.loadClass("com.luchang.demo.test.TryCatchFinallyTest").newInstance();
-        Object object = new TryCatchFinallyTest();
-        System.out.println(test instanceof com.luchang.demo.test.TryCatchFinallyTest);
-        System.out.println(object instanceof com.luchang.demo.test.TryCatchFinallyTest);
+        Object test = classLoader.loadClass("com.luchang.demo.test.ClassLoaderTest").newInstance();
+        Object object = new ClassLoaderTest();
+        System.out.println(test instanceof com.luchang.demo.test.ClassLoaderTest);
+        System.out.println(object instanceof com.luchang.demo.test.ClassLoaderTest);
     }
 
 
